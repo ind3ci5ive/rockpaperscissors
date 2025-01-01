@@ -2,10 +2,24 @@
 
 
 
-// Randomly choose either rock, paper, or scissors
-// Ask the user for input (rock, paper, or scissors)
-// Check which answer the user picks and which the computer picks (Rock > Scissors, Paper > Rock, Scissors > Paper)
-// Print whether the player won or lost
+
+// Game starts when user presses button
+// Prompt user in a div to press a RPS button, do not continue until button is pressed
+// Check the value of the button pressed commpared to the computer's and decide winner
+// Print new text to screen displaying current score, and prompting to press a RPS button again
+// Continue until either user or computer reaches 5 wins
+
+
+const startButton = document.querySelector("#start-button");
+const rockButton = document.querySelector("#rock-button");
+const paperButton = document.querySelector("#paper-button");
+const scissorsButton = document.querySelector("#scissors-button");
+const displayWindow = document.querySelector("#display-window");
+
+startButton.addEventListener("click", playGame);
+rockButton.addEventListener("click", getHumanChoiceRock);
+paperButton.addEventListener("click", getHumanChoicePaper);
+scissorsButton.addEventListener("click", getHumanChoiceScissors);
 
 
 
@@ -14,15 +28,27 @@
 playGame();
 
 
-// console.log("Hello");
-// console.log(getComputerChoice());
-// console.log(getHumanChoice());
-//#endregion
+// itemButton.addEventListener("click", () => {
+
+//     ul.removeChild(li);
+// });
+
+function getHumanChoiceRock() {
+
+    humanSelection = "Rock";
+}
+
+function getHumanChoicePaper() {
+
+    humanSelection = "Paper";
+}
+
+function getHumanChoiceScissors() {
+
+    humanSelection = "Scissors";
+}
 
 
-
-
-//#region getComputerChoice
 function getComputerChoice() {
 
     let computerChoice = Math.floor(Math.random() * 3);
@@ -42,45 +68,58 @@ function getComputerChoice() {
         return "Scissors";
     }
 }
-//#endregion
 
-//#region getHumanChoice
 
 function getHumanChoice() {
 
-
+ 
     do {
 
 
-        let userInput = prompt("Please choose Rock, Paper, or Scissors.");
+        displayWindow.innerHTML = "Please choose Rock, Paper, or Scissors"
+        buttonPressed = 0;
 
-        if (userInput.toLowerCase() == "rock") {
+        
+        if (document.getElementById("rock-button").onclick = true) {
 
-            return "Rock"; 
+            break;
         }
 
-        else if (userInput.toLowerCase() == "paper") {
+        else if (document.getElementById("paper-button").onclick = true) {
 
-            return "Paper";
+            break;
         }
 
-        else if (userInput.toLowerCase() == "scissors") {
+        else if (document.getElementById("scissors-button").onclick = true) {
 
-            return "Scissors";
+            break;
         }
 
-        else {
+        // if (userInput.toLowerCase() == "rock") {
 
-            console.log("Please provide proper input: Rock, Paper, or Scissors");
-        }
+        //     return "Rock"; 
+        // }
+
+        // else if (userInput.toLowerCase() == "paper") {
+
+        //     return "Paper";
+        // }
+
+        // else if (userInput.toLowerCase() == "scissors") {
+
+        //     return "Scissors";
+        // }
+
+        // else {
+
+        //     console.log("Please provide proper input: Rock, Paper, or Scissors");
+        // }
 
     }
     while(true);
 
 }
-//#endregion
 
-//#region playRound
 
 function playRound(computerSelection, humanSelection) {
 
@@ -136,9 +175,7 @@ function playRound(computerSelection, humanSelection) {
     }
 
 }
-//#endregion
 
-//#region playGame
 
 function playGame() {
 
@@ -171,6 +208,7 @@ function playGame() {
     console.log("Final Scores\n You: " + humanScore + " Computer: " + computerScore);
 }
 
-//#endregion
 
-//#region debug
+
+
+
